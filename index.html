@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#7c2d12">
+<title>東京賞楓 × 冬季點燈 5日行程</title>
+<style>
+:root{
+  --maple:#c2410c; --maple-deep:#7c2d12; --ginkgo:#d97706; --gold:#f59e0b;
+  --ink:#292018; --muted:#8a7a6d; --bg:#faf6f0; --card:#ffffff;
+  --line:#eee3d6; --night:#1e1b4b; --ok:#15803d;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,system-ui,"Segoe UI","Noto Sans TC",Roboto,sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.75;
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px}
+
+/* Hero */
+.hero{
+  background:
+    radial-gradient(700px 300px at 85% -10%, rgba(245,158,11,.25), transparent 60%),
+    radial-gradient(600px 300px at 10% 110%, rgba(194,65,12,.28), transparent 60%),
+    linear-gradient(160deg,#431407,#7c2d12 55%,#9a3412);
+  color:#fff7ed;text-align:center;
+  padding:calc(env(safe-area-inset-top) + 52px) 20px 46px;
+  position:relative;overflow:hidden;
+}
+.hero .leaves{font-size:2.2rem;letter-spacing:12px;opacity:.95}
+.hero h1{font-size:1.9rem;font-weight:900;letter-spacing:2px;margin:12px 0 6px;text-shadow:0 3px 14px rgba(0,0,0,.35)}
+.hero .sub{font-size:.95rem;font-weight:700;opacity:.92}
+.badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+.badge{
+  background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);
+  backdrop-filter:blur(6px);border-radius:30px;padding:5px 14px;
+  font-size:.78rem;font-weight:800;
+}
+
+/* Nav */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(250,246,240,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+  display:flex;gap:4px;overflow-x:auto;padding:10px 14px;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;
+}
+.nav::-webkit-scrollbar{display:none}
+.nav a{
+  flex:none;text-decoration:none;color:var(--muted);font-size:.82rem;font-weight:800;
+  padding:7px 13px;border-radius:20px;white-space:nowrap;
+}
+.nav a.on,.nav a:active{background:var(--maple);color:#fff}
+
+/* Sections */
+section{padding:34px 0 6px}
+h2{
+  font-size:1.3rem;font-weight:900;letter-spacing:1px;margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+h2 .bar{width:6px;height:24px;border-radius:4px;background:linear-gradient(180deg,var(--gold),var(--maple))}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:20px;
+  padding:20px;margin-bottom:14px;box-shadow:0 6px 22px -14px rgba(124,45,18,.25);
+}
+
+/* 航班 */
+.flight{display:flex;flex-direction:column;gap:12px}
+.f-row{
+  display:flex;align-items:center;gap:12px;padding:12px 14px;
+  background:#fff8ef;border:1px solid #f3e3c8;border-radius:14px;
+}
+.f-row .no{
+  flex:none;background:var(--maple);color:#fff;font-weight:900;font-size:.8rem;
+  border-radius:10px;padding:6px 10px;letter-spacing:.5px;
+}
+.f-row .t{flex:1;font-weight:800;font-size:.95rem}
+.f-row .t small{display:block;color:var(--muted);font-weight:600;font-size:.75rem}
+.tag-ok{color:var(--ok);font-weight:900;font-size:.75rem;flex:none}
+.alt{font-size:.8rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:12px}
+.alt b{color:var(--ink)}
+
+/* 總覽表 */
+.ov{width:100%;border-collapse:collapse;font-size:.88rem}
+.ov th{
+  text-align:left;color:#fff;background:linear-gradient(92deg,var(--maple),var(--ginkgo));
+  padding:10px 12px;font-size:.78rem;letter-spacing:1px;
+}
+.ov th:first-child{border-radius:12px 0 0 0}.ov th:last-child{border-radius:0 12px 0 0}
+.ov td{padding:11px 12px;border-bottom:1px solid var(--line);font-weight:600}
+.ov td:first-child{white-space:nowrap;font-weight:800;color:var(--maple-deep)}
+.ov tr:last-child td{border-bottom:none}
+.ov a{color:inherit;text-decoration:none;display:block}
+
+/* Day */
+.day-head{
+  display:flex;align-items:baseline;gap:12px;margin:26px 0 4px;
+}
+.day-chip{
+  flex:none;background:linear-gradient(140deg,var(--gold),var(--maple));color:#fff;
+  font-weight:900;border-radius:14px;padding:7px 14px;font-size:.95rem;
+  box-shadow:0 6px 16px -6px rgba(194,65,12,.5);
+}
+.day-head h3{font-size:1.08rem;font-weight:900}
+.day-head .d{color:var(--muted);font-size:.8rem;font-weight:700}
+.day-note{
+  font-size:.82rem;color:var(--maple-deep);background:#fff3e3;border:1px dashed #ecc894;
+  border-radius:12px;padding:10px 14px;margin:10px 0 12px;font-weight:600;
+}
+
+/* Stop card */
+.stop{
+  background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:16px 18px;margin-bottom:12px;
+  box-shadow:0 5px 18px -14px rgba(124,45,18,.28);
+}
+.stop .s-head{display:flex;align-items:center;gap:10px}
+.stop .ico{
+  flex:none;width:42px;height:42px;border-radius:12px;font-size:1.25rem;
+  display:flex;align-items:center;justify-content:center;background:#fff3e3;border:1px solid #f3e3c8;
+}
+.stop .nm{flex:1;min-width:0}
+.stop .nm b{font-size:1.02rem;font-weight:900;display:block}
+.stop .nm span{font-size:.72rem;color:var(--muted);font-weight:700;letter-spacing:.5px}
+.stop .opt{flex:none;font-size:.68rem;font-weight:900;color:#fff;background:#a8a29e;border-radius:20px;padding:3px 10px}
+.stop p{font-size:.86rem;margin-top:9px;color:#4b3f35}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.m{
+  font-size:.72rem;font-weight:700;color:var(--muted);
+  background:#faf4ea;border:1px solid var(--line);border-radius:20px;padding:4px 11px;
+}
+.m.hot{color:var(--maple);border-color:#f0cfae;background:#fff3e3}
+.links{display:flex;gap:8px;margin-top:12px}
+.lk{
+  flex:1;text-align:center;text-decoration:none;font-size:.82rem;font-weight:900;
+  padding:10px;border-radius:12px;color:#fff;
+  background:linear-gradient(140deg,var(--ginkgo),var(--maple));
+}
+.lk.ghost{background:#fff;color:var(--maple-deep);border:1.5px solid #ecc894}
+
+/* 點燈表 */
+.ilm{width:100%;border-collapse:collapse;font-size:.82rem}
+.ilm th{text-align:left;padding:8px 10px;color:#fff;background:var(--night);font-size:.74rem;letter-spacing:1px}
+.ilm th:first-child{border-radius:12px 0 0 0}.ilm th:last-child{border-radius:0 12px 0 0}
+.ilm td{padding:9px 10px;border-bottom:1px solid var(--line);font-weight:600}
+.ilm tr:last-child td{border-bottom:none}
+.ilm .warn{color:var(--maple);font-weight:800}
+
+/* 實用 */
+.tips li{margin-left:1.2em;font-size:.88rem;margin-bottom:8px}
+.tips b{color:var(--maple-deep)}
+
+.foot{
+  text-align:center;color:var(--muted);font-size:.72rem;padding:30px 20px calc(env(safe-area-inset-bottom) + 34px);
+  line-height:2;
+}
+.top-btn{
+  position:fixed;right:16px;bottom:calc(env(safe-area-inset-bottom) + 16px);z-index:90;
+  width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;
+  background:var(--maple);color:#fff;font-size:1.1rem;font-weight:900;
+  box-shadow:0 8px 20px -6px rgba(124,45,18,.55);display:none;
+}
+
+/* 住宿候選 */
+.hotel{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
+.hotel:last-child{border-bottom:none}
+.hotel .rk{
+  flex:none;width:28px;height:28px;border-radius:9px;font-size:.8rem;font-weight:900;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(140deg,var(--gold),var(--maple));color:#fff;
+}
+.hotel .rk.dim{background:#d6ccc2}
+.hotel .hb{flex:1;min-width:0}
+.hotel .hb b{font-size:.95rem;font-weight:900;display:block}
+.hotel .hb .why{font-size:.8rem;color:#4b3f35;margin-top:3px}
+
+/* TODO */
+.todo{list-style:none}
+.todo li{
+  display:flex;gap:10px;align-items:flex-start;
+  font-size:.86rem;padding:9px 0;border-bottom:1px dashed var(--line);
+}
+.todo li:last-child{border-bottom:none}
+.todo input{margin-top:3px;width:17px;height:17px;accent-color:var(--maple);flex:none;cursor:pointer}
+.todo label{cursor:pointer}
+.todo input:checked + label{color:var(--muted);text-decoration:line-through}
+.todo .grp{
+  font-size:.7rem;font-weight:900;color:var(--maple-deep);background:#fff3e3;
+  border:1px solid #f0cfae;border-radius:20px;padding:2px 9px;margin-right:6px;white-space:nowrap;
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="leaves">🍁🍂🌟</div>
+  <h1>東京賞楓 × 冬季點燈</h1>
+  <div class="sub">5 天 4 夜 · 單人 · 高雄出發 · 落腳上野</div>
+  <div class="badges">
+    <span class="badge">🍁 楓紅季</span>
+    <span class="badge">🌟 銀杏金黃</span>
+    <span class="badge">💡 冬季點燈</span>
+    <span class="badge">🌊 鎌倉・江之島</span>
+    <span class="badge">🔌 秋葉原 3C</span>
+  </div>
+</div>
+
+<nav class="nav" id="nav">
+  <a href="#flight">✈️ 航班</a>
+  <a href="#overview">📋 總覽</a>
+  <a href="#d1">Day 1</a>
+  <a href="#d2">Day 2</a>
+  <a href="#d3">Day 3</a>
+  <a href="#d4">Day 4</a>
+  <a href="#d5">Day 5</a>
+  <a href="#ilm">💡 點燈</a>
+  <a href="#hotel">🛏️ 住宿</a>
+  <a href="#swap">🔁 替換</a>
+  <a href="#tips">🎒 實用</a>
+  <a href="#todo">✅ 待辦</a>
+</nav>
+
+<div class="wrap">
+
+<!-- 航班 -->
+<section id="flight">
+  <h2><span class="bar"></span>✈️ 航班（已購:長榮 EVA）</h2>
+  <div class="card flight">
+    <div class="f-row">
+      <span class="no">去程</span>
+      <div class="t">Day 1 · 高雄 07:00 → 成田 11:25
+        <small>長榮航空 EVA（與 ANA 聯營，長榮承運）· 經濟艙 · 約 3.5 小時</small></div>
+      <span class="tag-ok">✓ 午前就到</span>
+    </div>
+    <div class="f-row">
+      <span class="no">回程</span>
+      <div class="t">Day 5 · 成田 12:25 → 高雄 15:45
+        <small>長榮航空 EVA · 午班機,Day 5 是移動日</small></div>
+      <span class="tag-ok">✓ 下午到家</span>
+    </div>
+    <div class="alt">
+      🛬 <b>抵達日</b>:11:25 落地 → Skyliner 約 45 分 → 約 13:00 進飯店,Day 1 有一整個下午,別當它只是暖身。<br>
+      🛫 <b>回程日</b>:12:25 起飛,國際線提前 2.5 小時 → <b>8:30 前離開飯店</b>(約 9:40 抵成田,留得下退稅時間)。<br>
+      💳 長榮訂位記得掛<b>無限萬哩遊</b>卡號,累積亞洲線哩程。
+    </div>
+  </div>
+  <div class="card">
+    <b style="font-size:.92rem">🚄 機場 ⇄ 市區（Skyliner 為主）</b>
+    <p style="font-size:.85rem;margin-top:6px">
+      <b>京成 Skyliner</b>:成田 ⇄ 上野／日暮里約 <b>45 分</b>,比 N'EX 快。落腳上野正好,回程午班機用這個最省時。<br>
+      <b>N'EX 成田特快</b>:直達新宿 / 東京 / 澀谷約 60–90 分(備案)。<br>
+      市內用 <b>Suica/PASMO</b>;跑多站可考慮 Tokyo Subway Ticket 24/48/72hr。
+    </p>
+  </div>
+</section>
+
+<!-- 總覽 -->
+<section id="overview">
+  <h2><span class="bar"></span>📋 行程總覽</h2>
+  <div class="card" style="padding:12px">
+    <table class="ov">
+      <tr><th>行程日</th><th>主題</th><th>區域</th></tr>
+      <tr><td><a href="#d1">Day 1</a></td><td><a href="#d1">抵達與新宿不夜城</a></td><td><a href="#d1">新宿 / 歌舞伎町</a></td></tr>
+      <tr><td><a href="#d2">Day 2</a></td><td><a href="#d2">銀杏與澀谷夜</a></td><td><a href="#d2">明治神宮 / 外苑 / 澀谷</a></td></tr>
+      <tr><td><a href="#d3">Day 3</a></td><td><a href="#d3">鎌倉 + 江之島（海岸一日遊）</a></td><td><a href="#d3">鎌倉 / 江之島</a></td></tr>
+      <tr><td><a href="#d4">Day 4</a></td><td><a href="#d4">硬體採購 × 相撲秀</a></td><td><a href="#d4">秋葉原 / 銀座</a></td></tr>
+      <tr><td><a href="#d5">Day 5</a></td><td><a href="#d5">滿載回程（午班機）</a></td><td><a href="#d5">成田</a></td></tr>
+    </table>
+  </div>
+  <div class="day-note">🍁 這趟卡在<b>銀杏見頃巔峰、楓紅初上</b>,加上冬季點燈陸續開跑,是一年裡最美的檔期之一。見頃會隨氣溫前後飄幾天,出發前一週再上 tenki.jp 確認。</div>
+</section>
+
+<!-- Day 1 -->
+<section id="d1">
+  <div class="day-head"><span class="day-chip">Day 1</span><h3>抵達與新宿不夜城</h3><span class="d">新宿 / 歌舞伎町</span></div>
+  <div class="day-note">11:25 抵成田 → Skyliner 約 45 分到上野 → 約 13:00 進飯店放行李。早班機到得早,<b>下午別浪費</b>。上野 → 新宿搭山手線約 25 分。</div>
+
+  <div class="stop">
+    <div class="s-head">
+      <div class="ico">🌿</div>
+      <div class="nm"><b>新宿御苑</b><span>Shinjuku Gyoen · 庭園賞楓 ★4.6</span></div>
+    </div>
+    <p>日式／英式／法式庭園,楓紅＋銀杏一次收。抵達日下午就近走走剛好。<b>⚠️ 週一休園</b>——這趟抵達日不是週一,正常開。</p>
+    <div class="meta"><span class="m hot">🍁 賞楓季約至 16:30(末入園 16:00)</span><span class="m">500 日圓</span><span class="m">丸之內線 新宿御苑前站 5 分</span></div>
+    <div class="links">
+      <a class="lk" href="https://maps.google.com/?q=新宿御苑" target="_blank">📍 地圖</a>
+      <a class="lk ghost" href="https://www.env.go.jp/garden/shinjukugyoen/index.html" target="_blank">官網</a>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="s-head">
+      <div class="ico">🌃</div>
+      <div class="nm"><b>東京都廳展望台</b><span>免費夜景</span></div>
+    </div>
+    <p>202m 免費展望台,約開到 22:00,看第一晚的東京夜景。</p>
+    <div class="meta"><span class="m">免費</span><span class="m">都廳前站直結 / 新宿站步行 10 分</span></div>
+    <div class="links"><a class="lk" href="https://maps.google.com/?q=東京都廳展望台" target="_blank">📍 地圖</a></div>
+  </div>
+
+  <div class="stop">
+    <div class="s-head">
+      <div class="ico">🏮</div>
+      <div class="nm"><b>歌舞伎町</b><span>東急歌舞伎町タワー · 黃金街 · 不夜城</span></div>
+    </div>
+    <p><b>東急歌舞伎町タワー</b>:B1「新宿カブキhall」昭和祭典風美食橫丁、namco 電玩、頂樓酒吧。<br>
+    <b>黃金街</b>:200 多家最多坐 10 人的迷你酒吧,挑掛「英語 OK／明碼」的進去喝一杯感受氣氛。<br>
+    順路吃<b>思い出橫丁</b>串燒、看哥吉拉頭打卡。</p>
+    <div class="meta"><span class="m hot">🌙 傍晚到深夜</span><span class="m">西武新宿站 1 分 / JR 新宿東口 5 分</span><span class="m">輕度體驗、點到為止</span></div>
+    <div class="links"><a class="lk" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E6%80%A5%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA%E3%82%BF%E3%83%AF%E3%83%BC" target="_blank">📍 地圖</a></div>
+  </div>
+
+  <div class="card" style="border:1.5px solid #f0b8a0;background:#fff5f0">
+    <b style="font-size:.9rem">⚠️ 一個人在歌舞伎町</b>
+    <p style="font-size:.85rem;margin-top:6px">
+      路上<b>拉客一律拒絕</b>、<b>進店前先確認價錢</b>、<b>盡量走主要大街</b>。灌帳單糾紛不少,守這三條就好。
+    </p>
+  </div>
+</section>
+
+<!-- Day 2 -->
+<section id="d2">
+  <div class="day-head"><span class="day-chip">Day 2</span><h3>銀杏與澀谷夜</h3><span class="d">明治神宮 / 外苑 / 澀谷</span></div>
+
+  <div class="stop">
+    <div class="s-head">
+      <div class="ico">⛩️</div>
+      <div class="nm"><b>明治神宮</b><span>Meiji Jingu · 神社 ★4.6</span></div>
+    </div>
+    <p>都心森林神社。一早先來,趁人少走參道最靜。</p>
+    <div class="meta"><span class="m hot">🌅 開門後立刻來人最少</span><span class="m">免費</span><span class="m">JR 原宿站步行 1–3 分</span></div>
+    <div class="links">
+      <a class="lk" href="https://maps.google.com/?cid=10361244767556222835" target="_blank">📍 地圖</a>
+      <a class="lk ghost" href="https://www.meijijingu.or.jp/" target="_blank">官網</a>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="s-head">
+      <div class="ico">🌟</div>
+      <div class="nm"><b>明治神宮外苑 銀杏並木</b><span>Ginkgo Avenue · 全程重頭戲 ★4.4</span></div>
+    </div>
+    <p>300 公尺金黃銀杏隧道,你這幾天正卡在見頃巔峰。原宿逛完吃個早午餐再過來。</p>
+    <div class="meta"><span class="m hot">🍂 11 月下旬見頃 · 早上光線好</span><span class="m">免費</span><span class="m">銀座線 外苑前站步行 5 分</span></div>
+    <div class="links">
+      <a class="lk" href="https://maps.google.com/?cid=16114120031656484864" target="_blank">📍 地圖</a>
+      <a class="lk ghost" href="http://www.meijijingugaien.jp/" target="_blank">官網</a>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="s-head">
+      <div class="ico">🎄</div>
+      <div class="nm"><b>神宮外苑 東京聖誕市集</b><span>Christmas Market · 點燈</span></div>
+    </div>
+    <p>就在銀杏並木旁:德國風小屋、聖誕金字塔、熱紅酒。黃昏點燈後氣氛最好,可以待到晚上。</p>
+    <div class="meta"><span class="m hot">🌆 黃昏點燈後最讚</span><span class="m">入場需購票</span><span class="m">2025 檔期 11/21–12/25</span></div>
+    <div class="links"><a class="lk" href="https://maps.google.com/?q=東京クリスマスマーケット+神宮外苑" target="_blank">📍 地圖</a></div>
+  </div>
+
+  <div class="stop">
+    <div class="s-head">
+      <div class="ico">🌇</div>
+      <div class="nm"><b>澀谷夜 · SHIBUYA SKY</b><span>十字路口 + 展望台 ★4.6</span></div>
+      <span class="opt">選配</span>
+    </div>
+    <p>澀谷十字路口感受一下不夜城,再上 <b>SHIBUYA SKY</b> 360 度露天展望台看夜景。日落場最搶手,要先線上訂票。</p>
+    <div class="meta"><span class="m">10:00–22:30</span><span class="m">澀谷站直結</span><span class="m hot">🎫 需線上訂票</span></div>
+    <div class="links">
+      <a class="lk" href="https://maps.google.com/?cid=8067212359343678579" target="_blank">📍 地圖</a>
+      <a class="lk ghost" href="https://www.shibuya-scramble-square.com/sky/" target="_blank">訂票</a>
+    </div>
+  </div>
+
+  <div class="day-note">🛏️ <b>今晚早點回上野</b>——明天週日要搶江ノ電,一早就得出發。想去夜店的話留到 Day 4。</div>
+</section>
+
+<!-- Day 3 -->
+<section id="d3">
+  <div class="day-head"><span class="day-chip">Day 3</span><h3>鎌倉 + 江之島（海岸一日遊）</h3><span class="d">鎌倉 / 江之島</span></div>
+  <div class="day-note">JR 從上野到鎌倉約 1 小時(上野東京線→橫須賀線);鎌倉起搭江ノ電沿海一路玩到江之島。買<b>江ノ電一日券</b>比較划算。<b>⚠️ 週日人多、江ノ電會很擠,一早出發。</b></div>
+
+  <div class="stop">
+    <div class="s-head">
+      <div class="ico">🗿</div>
+      <div class="nm"><b>鎌倉大佛 高德院 + 長谷寺</b><span>Kotoku-in · 文化 ★4.4</span></div>
+    </div>
+    <p>露天青銅大佛很有氣勢,可另付 50 日圓鑽進大佛內部。隔壁<b>長谷寺</b>觀景台可同時看楓紅與海,是這段的隱藏亮點。</p>
+    <div class="meta"><span class="m">08:00–16:45</span><span class="m">拜觀 300 日圓</span><span class="m">江ノ電「長谷」站步行 7 分</span></div>
+    <div class="links">
+      <a class="lk" href="https://maps.google.com/?cid=2216777826481991500" target="_blank">📍 地圖</a>
+      <a class="lk ghost" href="https://www.kotoku-in.jp/" target="_blank">官網</a>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="s-head">
+      <div class="ico">🌊</div>
+      <div class="nm"><b>七里ヶ浜 · 江ノ電沿海</b><span>Shichirigahama · 海岸 ★4.7</span></div>
+    </div>
+    <p>江ノ電沿海最美一段。晴天可看<b>富士山配海</b>;隔壁「鎌倉高校前」平交道就是灌籃高手片頭場景。午餐吃<b>吻仔魚丼(しらす丼)</b>。</p>
+    <div class="meta"><span class="m hot">🗻 晴天可見富士山</span><span class="m">江ノ電「七里ヶ浜」站</span><span class="m">🍚 しらす丼</span></div>
+    <div class="links"><a class="lk" href="https://maps.google.com/?cid=11344940212826062752" target="_blank">📍 地圖</a></div>
+  </div>
+
+  <div class="stop">
+    <div class="s-head">
+      <div class="ico">🏝️</div>
+      <div class="nm"><b>江之島 江島神社</b><span>Enoshima · 離島 / 日落 ★4.3</span></div>
+    </div>
+    <p>走上離島:江島神社、岩屋海蝕洞、山頂「海燭」展望台看<b>日落配富士山</b>。冬季「湘南寶石」點燈通常 11 月下旬開跑,運氣好可一次收日落+點燈。<br>
+    晚上就在江之島／藤沢吃海鮮,再從<b>藤沢搭 JR 回上野</b>(或小田急到新宿轉山手線)。</p>
+    <div class="meta"><span class="m hot">🌅 下午到傍晚最好</span><span class="m">江ノ電「江ノ島」站</span><span class="m">💎 湘南寶石日期以官網為準</span><span class="m">階梯多,穿好走的鞋</span></div>
+    <div class="links">
+      <a class="lk" href="https://maps.google.com/?cid=18049709218245275743" target="_blank">📍 地圖</a>
+      <a class="lk ghost" href="http://enoshimajinja.or.jp/hetsumiya/" target="_blank">官網</a>
+    </div>
+  </div>
+</section>
+
+<!-- Day 4 -->
+<section id="d4">
+  <div class="day-head"><span class="day-chip">Day 4</span><h3>硬體採購 × 相撲秀</h3><span class="d">秋葉原 / 銀座</span></div>
+  <div class="day-note">住上野的話,秋葉原<b>搭一站就到</b>。整個下午留給電器街,傍晚往銀座接相撲秀。</div>
+
+  <div class="stop">
+    <div class="s-head">
+      <div class="ico">🔌</div>
+      <div class="nm"><b>秋葉原 電器街</b><span>Akihabara · 採購主場 ★4.5</span></div>
+    </div>
+    <p>3C、gadget、二手電子、智慧家電。Yodobashi、Bic Camera、駿河屋、Sofmap、唐吉訶德都在這,找 HomeKit 週邊或開發小物很好逛。<b>整個下午留給這裡。</b></p>
+    <div class="meta"><span class="m">多為 10:00–20:00</span><span class="m">上野搭一站</span><span class="m hot">🧾 走退稅新制(先付後退)</span><span class="m hot">🧳 掃貨前確認託運額度</span></div>
+    <div class="links">
+      <a class="lk" href="https://maps.google.com/?cid=8054666486400292732" target="_blank">📍 地圖</a>
+      <a class="lk ghost" href="http://akiba.or.jp/" target="_blank">官網</a>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="s-head">
+      <div class="ico">🤼</div>
+      <div class="nm"><b>日楽座 GINZA 相撲晚餐秀</b><span>THE SUMO LIVE RESTAURANT ★4.9</span></div>
+    </div>
+    <p>秋葉原搭銀座線幾站到銀座。<b>元力士現場表演(含 3 場真對戰)＋會席料理＋日本酒</b>,全程約 2 小時、開場會講解規則,很適合單人;結束後力士會一一合照。</p>
+    <div class="meta"><span class="m hot">🎫 官網線上訂,只收信用卡</span><span class="m">標準席約 ¥17,000 起(＋服務費 ¥700)</span><span class="m">傍晚場約 18:00 · 約 2 小時</span><span class="m">銀座一丁目站 1 分</span></div>
+    <div class="links">
+      <a class="lk" href="https://www.google.com/maps/place/?q=place_id:ChIJG2rEFgCLGGARCI1AWSlelT8" target="_blank">📍 地圖</a>
+      <a class="lk ghost" href="https://hirakuza.net/tokyo/" target="_blank">訂位</a>
+    </div>
+    <p style="font-size:.78rem;color:var(--muted);margin-top:8px">為什麼是這個:歌舞伎座這段期間剛好換檔沒戲,大相撲該月場所又在福岡——這是這幾天在東京能看到相撲的方案。</p>
+  </div>
+
+  <div class="stop">
+    <div class="s-head">
+      <div class="ico">🍸</div>
+      <div class="nm"><b>CE LA VI TOKYO</b><span>澀谷高空酒吧 / 夜店</span></div>
+      <span class="opt">選配</span>
+    </div>
+    <p>最後一晚想放鬆再去。東急プラザ渋谷 17–18F,高級路線、室內+露天、國際客多,<b>不放電音</b>(house/pops/hiphop/R&amp;B),喝一杯感受氣氛剛好。</p>
+    <div class="meta"><span class="m">23:00–4:30</span><span class="m">入場約 ¥2,000–3,500(常含一杯)</span><span class="m">20 歲以上 · 需護照</span><span class="m hot">⚠️ 隔天午班機 8:30 出門,別玩太晚</span></div>
+    <div class="links"><a class="lk" href="https://www.google.com/maps/search/?api=1&query=CE%20LA%20VI%20TOKYO%20Shibuya" target="_blank">📍 地圖</a></div>
+  </div>
+
+  <div class="stop">
+    <div class="s-head">
+      <div class="ico">✨</div>
+      <div class="nm"><b>機動加點:六義園 / 丸之內仲通</b><span>順路才去,不強求</span></div>
+      <span class="opt">機動</span>
+    </div>
+    <p><b>🍁 六義園</b>(早上)— 江戶迴遊式名園,楓紅倒映池面 11 月底正見頃;夜間點燈期延長到約 21:00(另購票)。住上野山手線幾站就到。09:00–17:00 · 300 日圓。<br>
+    <b>✨ 丸之內仲通</b>(去銀座路上)— 香檳金 LED,11/28 起行幸通加碼,紅磚車站夜景免費拍。<b>幾乎不繞路。</b></p>
+    <div class="links">
+      <a class="lk ghost" href="https://maps.google.com/?cid=8523193424780095461" target="_blank">📍 六義園</a>
+      <a class="lk ghost" href="https://maps.google.com/?cid=11114180190203192" target="_blank">📍 丸之內</a>
+    </div>
+  </div>
+</section>
+
+<!-- Day 5 -->
+<section id="d5">
+  <div class="day-head"><span class="day-chip">Day 5</span><h3>滿載回程（午班機）</h3><span class="d">成田</span></div>
+  <div class="day-note">中午 <b>12:25</b> 的飛機。Skyliner 上野→成田約 45 分、國際線提前 2.5 小時 → <b>8:30 從飯店出發</b>(約 9:40 抵成田)。基本上是退房 → 直奔機場,早餐在飯店或成田航廈解決。</div>
+
+  <div class="card" style="border:1.5px solid #ecc894;background:#fffaf2">
+    <b style="font-size:.92rem">⏱️ 回程時間軸</b>
+    <p style="font-size:.85rem;margin-top:8px;line-height:2">
+      <b>08:30</b> 退房離開飯店 → <b>08:45</b> 上野站搭 Skyliner → <b>09:40</b> 抵成田<br>
+      → <b>報到/托運</b> → <b>🧾 退稅終端機(多留約 30 分)</b> → 出境 → <b>12:25</b> 起飛 → <b>15:45</b> 抵高雄
+    </p>
+    <div class="meta"><span class="m hot">🧾 新制退稅要在出境時跑終端機</span><span class="m">免稅品放手提或可開查的行李</span></div>
+  </div>
+
+  <div class="stop">
+    <div class="s-head">
+      <div class="ico">🍣</div>
+      <div class="nm"><b>想吃築地?這趟先割捨</b><span>Tsukiji Outer Market ★4.2</span></div>
+      <span class="opt">排不進</span>
+    </div>
+    <p>午班機的時間排不進築地早市。真要去只能<b>某天早起提早衝</b>(例如 Day 4 一早,但接六義園會很趕),否則這趟先放掉。</p>
+    <div class="meta"><span class="m">約 05:00–14:00</span><span class="m">8 點前人少</span><span class="m">帶現金</span></div>
+    <div class="links">
+      <a class="lk ghost" href="https://maps.google.com/?cid=11704332758705177180" target="_blank">📍 地圖</a>
+      <a class="lk ghost" href="https://www.tsukiji.or.jp/" target="_blank">官網</a>
+    </div>
+  </div>
+</section>
+
+<!-- 點燈清單 -->
+<section id="ilm">
+  <h2><span class="bar"></span>💡 冬季點燈清單</h2>
+  <div class="card" style="padding:12px">
+    <table class="ilm">
+      <tr><th>名稱</th><th>區域</th><th>期間(2025 參考)</th></tr>
+      <tr><td>丸之內仲通</td><td>東京車站</td><td>11/13–2/15(行幸通 11/28 起)</td></tr>
+      <tr><td>六本木之丘 けやき坂</td><td>六本木</td><td>11/4–12/25 · 17:00–23:00</td></tr>
+      <tr><td>神宮外苑 聖誕市集</td><td>外苑</td><td>11/21–12/25</td></tr>
+      <tr><td>惠比壽花園廣場 Baccarat</td><td>惠比壽</td><td>11/8–1/12</td></tr>
+      <tr><td>東京巨蛋城 Snow Dome City</td><td>水道橋</td><td>11/17–3/1</td></tr>
+      <tr><td>目黑川 冬季櫻花點燈</td><td>中目黑</td><td>11–2 月</td></tr>
+      <tr><td>台場 YAKEI</td><td>台場</td><td>11/14–2/27</td></tr>
+      <tr><td>東京鐵塔 Winter Fantasy</td><td>芝公園</td><td>11/17 起</td></tr>
+      <tr><td>日比谷 Magic Time</td><td>日比谷</td><td>11/13–2/28</td></tr>
+      <tr><td>澀谷 青の洞窟</td><td>澀谷</td><td class="warn">12/4–12/25 · 開跑較晚,先確認碰不碰得上</td></tr>
+    </table>
+  </div>
+  <div class="day-note">上表為前一年參考檔期。正式日期請於出發前確認各官方公告,通常與前一年相近。</div>
+</section>
+
+<!-- 住宿候選 -->
+<section id="hotel">
+  <h2><span class="bar"></span>🛏️ 住宿候選（尚未訂）</h2>
+  <div class="day-note">📍 落腳鎖定<b>上野一帶</b>:在山手線上、離上野／日暮里的 Skyliner 站近(Day 5 去成田最快),御徒町→秋葉原 1 站,山手線直達澀谷／新宿。</div>
+
+  <div class="card">
+    <b style="font-size:.9rem">篩選條件</b>
+    <div class="meta" style="margin-top:8px">
+      <span class="m hot">♨️ 大浴場/溫泉(最好開到凌晨 1–2 點)</span>
+      <span class="m">🚶 離 JR 站 &lt; 5 分</span>
+      <span class="m">💰 每晚上限約 TWD 3,000</span>
+      <span class="m">🕐 24h/自助 check-in</span>
+      <span class="m">🧺 投幣洗衣</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="hotel">
+      <span class="rk">1</span>
+      <div class="hb">
+        <b>APA 上野駅前 <span style="font-size:.7rem;color:var(--maple)">首選 · 最順</span></b>
+        <div class="why">上野站 1–3 分 · 頂樓露天大浴殿 · Skyliner 直達、離秋葉原最近</div>
+      </div>
+    </div>
+    <div class="hotel">
+      <span class="rk">2</span>
+      <div class="hb">
+        <b>APA 山手大塚駅前タワー <span style="font-size:.7rem;color:var(--muted)">最省</span></b>
+        <div class="why">大塚站 3 分 · 20F 天然溫泉露天,<b>開到凌晨 2 點</b> · 到機場多約 15 分</div>
+      </div>
+    </div>
+    <div class="hotel">
+      <span class="rk dim">3</span>
+      <div class="hb">
+        <b>Dormy Inn 上野·御徒町 <span style="font-size:.7rem;color:var(--muted)">體驗封頂</span></b>
+        <div class="why">御徒町 5 分 · 頂樓半露天+桑拿+免費夜鳴きそば · <b>旺季恐超預算</b></div>
+      </div>
+    </div>
+    <div class="hotel">
+      <span class="rk dim">4</span>
+      <div class="hb">
+        <b>APA 上野広小路 <span style="font-size:.7rem;color:var(--muted)">貼秋葉原</span></b>
+        <div class="why">御徒町 5 分／秋葉原步行 7 分 · 人工碳酸泉</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-note">💡 <b>合預算就鎖 APA 上野駅前</b>,明顯超再退到 APA 大塚。旺季房價會漲,<b>早訂鎖價</b>。替代區域:東京車站／丸之內(點燈區、回成田方便)。</div>
+</section>
+
+<!-- 彈性替換 -->
+<section id="swap">
+  <h2><span class="bar"></span>🔁 彈性替換方案</h2>
+  <div class="day-note">行程是活的——看天氣、體力、心情換。<b>Day 3 海邊想改成山</b>的話,下面高尾山或箱根都可以;想更文青就加下北澤或谷根千。</div>
+
+  <div class="stop">
+    <div class="s-head">
+      <div class="ico">⛰️</div>
+      <div class="nm"><b>高尾山</b><span>替換 Day 3 · 賞楓 + 纜車 ★4.4</span></div>
+    </div>
+    <p>新宿搭京王線約 50 分直達高尾山口。纜車/吊椅上山,沿途楓紅、藥王院、山頂展望台;晴天上午雲少,有機會遠眺富士山。這幾天正是最漂亮的時候。下山可泡<b>京王高尾山溫泉 極楽湯</b>(就在站旁)。</p>
+    <div class="meta"><span class="m hot">🍁 11 中旬–12 上旬見頃</span><span class="m">京王線 新宿→高尾山口 約 50 分</span><span class="m">穿好走的鞋</span></div>
+    <div class="links"><a class="lk" href="https://maps.google.com/?q=高尾山" target="_blank">📍 地圖</a></div>
+  </div>
+
+  <div class="stop">
+    <div class="s-head">
+      <div class="ico">🗻</div>
+      <div class="nm"><b>箱根一日遊</b><span>替換 Day 3 · 富士山 + 蘆之湖 + 溫泉</span></div>
+    </div>
+    <p><b>建議動線</b>:上野搭山手線到新宿(約 25 分)→ 小田急「浪漫特快」85 分 → 箱根湯本 → 登山電車→強羅 → 纜車→大湧谷(吃黑蛋) → 桃源台 → 蘆之湖海賊船 → 元箱根(富士山＋紅色鳥居同框) → 回湯本泡「天山湯治郷」(¥1,450) → 浪漫特快回新宿轉山手線回上野。<b>住上野的話要多算來回新宿的 50 分鐘,當天要早點出門。</b></p>
+    <p><b>票券</b>:小田急「箱根周遊券」新宿出發 2 日券約 ¥6,100,含來回＋箱根區內登山電車/纜車/海賊船/巴士吃到飽(浪漫特快加價約 ¥1,200/趟)。</p>
+    <div class="meta">
+      <span class="m hot">🗻 富士山:晴天上午最清楚,大湧谷/蘆之湖視角佳</span>
+      <span class="m hot">🍁 湯本 11 月底紅葉見頃尾聲</span>
+      <span class="m">♨️ 想住一晚溫泉旅館(懷石+泡湯,單人約 ¥18,000 起)跟我說,幫你改成一泊二日版</span>
+    </div>
+    <div class="links">
+      <a class="lk" href="https://maps.google.com/?q=箱根湯本駅" target="_blank">📍 地圖</a>
+      <a class="lk ghost" href="https://www.odakyu.jp/tc/passes/hakone/" target="_blank">周遊券官網</a>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="s-head">
+      <div class="ico">🎸</div>
+      <div class="nm"><b>下北澤</b><span>文青半日 · 古著 × 唱片 × 咖啡</span></div>
+    </div>
+    <p>東京古著聖地:二手衣、黑膠唱片行、小劇場、獨立咖啡跟居酒屋橫丁,巷子亂走就是逛法。近年車站周邊再開發的 reload、BONUS TRACK 也很好拍。</p>
+    <p><b>怎麼塞</b>:從新宿搭小田急 <b>10 分鐘</b>直達,最順的是 <b>Day 2 傍晚</b>——外苑/澀谷那天本來就在西邊,結束後繞過去剛好;店家多下午才開、傍晚最熱鬧。</p>
+    <div class="meta"><span class="m">小田急/京王井之頭線「下北沢」站</span><span class="m hot">🕐 店多 12:00 後開</span></div>
+    <div class="links"><a class="lk" href="https://maps.google.com/?q=下北沢" target="_blank">📍 地圖</a></div>
+  </div>
+
+  <div class="stop">
+    <div class="s-head">
+      <div class="ico">🐈</div>
+      <div class="nm"><b>谷根千(谷中・根津・千駄木)</b><span>下町老街半日 · 就在飯店隔壁</span></div>
+    </div>
+    <p>昭和感下町:谷中銀座商店街(可樂餅、鯛魚燒邊走邊吃)、貓咪出沒的小巷、谷中靈園銀杏、根津神社千本鳥居。步調慢、單人旅剛好。</p>
+    <p><b>怎麼塞</b>:<b>住上野的最大紅利——走路/一站就到</b>。最順是 <b>Day 4 早上</b>:上野 → 谷中銀座 → 根津神社(想加六義園就從駒込串進來)→ 中午前回秋葉原開始採購。任何一天早上多出 2 小時都能塞。</p>
+    <div class="meta"><span class="m">千代田線「千駄木」/「根津」站</span><span class="m hot">🍂 谷中靈園銀杏 11 月底也黃了</span></div>
+    <div class="links"><a class="lk" href="https://maps.google.com/?q=谷中銀座商店街" target="_blank">📍 地圖</a></div>
+  </div>
+</section>
+
+<!-- 實用 -->
+<section id="tips">
+  <h2><span class="bar"></span>🎒 實用資訊</h2>
+
+  <div class="card" style="border:1.5px solid #ecc894;background:#fffaf2">
+    <b style="font-size:.95rem">🧾 退稅新制(先付後退——這趟適用!)</b>
+    <p style="font-size:.85rem;margin-top:8px">
+      日本免稅從「當場免稅」改為「<b>先付後退</b>」:結帳付<b>含稅價</b>,出境時在機場退回 10% 消費稅。
+    </p>
+    <ol style="font-size:.85rem;margin:10px 0 4px 1.3em;line-height:2">
+      <li>結帳出示護照 → 店家做免稅登記、給 <b>QR Code</b></li>
+      <li>掃 QR 進「<b>J-Tax Refund</b>」網站,登記護照資料＋退款方式(<b>刷回信用卡</b>或帳戶,購物階段就先設好)</li>
+      <li>成田出境時在<b>專用終端機刷護照</b>,海關可能查驗商品 → 確認後退款</li>
+    </ol>
+    <div class="meta">
+      <span class="m hot">💳 建議統一退回同一張信用卡最省事</span>
+      <span class="m">同店同日滿 ¥5,000 適用</span>
+      <span class="m">取消一般/消耗品分類與密封袋</span>
+      <span class="m">商品 90 天內須攜出境</span>
+      <span class="m hot">⏰ Day 5 機場多留 30 分跑退稅</span>
+      <span class="m hot">🛒 Day 4 秋葉原是主戰場</span>
+    </div>
+    <p style="font-size:.75rem;color:var(--muted);margin-top:8px">新制免稅品記得放手提或可開查的行李;細節出發前再確認官方最新公告。</p>
+  </div>
+
+  <div class="card">
+    <ul class="tips">
+      <li><b>住宿</b>:鎖定上野一帶(4 晚)——山手線上、Skyliner 直達成田、秋葉原 1 站。候選與比較見上方 <a href="#hotel" style="color:var(--maple);font-weight:800">🛏️ 住宿候選</a>。</li>
+      <li><b>天氣</b>:日間約 12–16°C、早晚 7–9°C,很少低於零度也很少下雪。洋蔥式穿搭 + 輕羽絨/防風外套 + <b>好走的鞋</b>(鎌倉・江之島走很多路、江之島階梯多)。</li>
+      <li><b>賞楓是活的</b>:見頃會前後飄幾天,出發前一週看 tenki.jp 或 Weathernews 紅葉前線微調順序。</li>
+      <li><b>大浴場</b>:多數禁刺青入浴,有的話備遮蓋貼。</li>
+      <li><b>彈性替換</b>:高尾山、箱根、下北澤、谷根千的完整走法見上方 <a href="#swap" style="color:var(--maple);font-weight:800">🔁 彈性替換方案</a>。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 待辦 -->
+<section id="todo">
+  <h2><span class="bar"></span>✅ 待辦與決策狀態</h2>
+  <div class="day-note">機票已購 ✅。<b>訂房與相撲秀是目前最該先動的兩件事</b>——旺季房價會漲,早訂鎖價。</div>
+
+  <div class="card">
+    <ul class="todo">
+      <li><input type="checkbox" id="t1"><label for="t1"><span class="grp">訂房</span>比 4 家在<b>旅行日期</b>、1 人的即時房價;合預算就鎖 <b>APA 上野駅前</b>,明顯超再退到 APA 大塚</label></li>
+      <li><input type="checkbox" id="t2"><label for="t2"><span class="grp">訂票</span><b>相撲秀</b> 日楽座 GINZA,約 ¥17,000,官網線上訂、只收信用卡</label></li>
+      <li><input type="checkbox" id="t3"><label for="t3"><span class="grp">訂票</span><b>SHIBUYA SKY</b>(Day 2 若要上去):官網預約,日落場最搶手</label></li>
+      <li><input type="checkbox" id="t4"><label for="t4"><span class="grp">訂票</span><b>江ノ電一日券</b>(現場/App)+ 確認江之島「湘南寶石」點燈當年日期</label></li>
+      <li><input type="checkbox" id="t5"><label for="t5"><span class="grp">哩程</span>長榮訂位掛<b>無限萬哩遊</b>卡號(累積亞洲線,朝台日商務艙獎勵票 50,000 哩)</label></li>
+      <li><input type="checkbox" id="t6"><label for="t6"><span class="grp">卡</span>機票用<b>匯豐旅人卡刷全額</b> → 附旅平險+不便險;接送/貴賓室入帳後再預約(提前 3–5 工作天)</label></li>
+      <li><input type="checkbox" id="t7"><label for="t7"><span class="grp">卡</span>打匯豐客服確認「台南→小港機場」接送是否免費/加價</label></li>
+      <li><input type="checkbox" id="t8"><label for="t8"><span class="grp">出發前</span>eSIM/網路;Suica 用信用卡儲值(有回饋)</label></li>
+      <li><input type="checkbox" id="t9"><label for="t9"><span class="grp">出發前</span>看 tenki.jp / Weathernews 紅葉前線微調賞楓順序;確認各點燈當年日期</label></li>
+      <li><input type="checkbox" id="t10"><label for="t10"><span class="grp">出發前</span>打包:透氣層次+輕羽絨、好走的鞋;有刺青備遮蓋貼</label></li>
+      <li><input type="checkbox" id="t11"><label for="t11"><span class="grp">出發前</span><b>退稅新制</b>:先決定要退回哪張信用卡,購物時統一刷同一張</label></li>
+    </ul>
+  </div>
+  <p style="font-size:.72rem;color:var(--muted);text-align:center;margin-top:4px">勾選狀態存在這台裝置的瀏覽器裡</p>
+</section>
+
+</div>
+
+<button class="top-btn" id="topBtn" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="foot">
+  東京賞楓 × 冬季點燈 5 日 · 長榮 EVA · 落腳上野<br>
+  各景點時間費用以官網為準 · Generated with Claude Code 🍁
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var topBtn = document.getElementById('topBtn');
+  var links = Array.prototype.slice.call(document.querySelectorAll('#nav a'));
+  var secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  window.addEventListener('scroll', function(){
+    topBtn.style.display = window.scrollY > 600 ? 'block' : 'none';
+    var y = window.scrollY + 120;
+    var on = 0;
+    for (var i = 0; i < secs.length; i++) if (secs[i] && secs[i].offsetTop <= y) on = i;
+    links.forEach(function(a, i){ a.classList.toggle('on', i === on); });
+  }, {passive:true});
+
+  // 待辦勾選狀態存 localStorage(僅這台裝置)
+  var KEY = 'tokyo-trip-todo';
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { saved = {}; }
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.todo input[type=checkbox]'));
+  boxes.forEach(function(b){
+    if (saved[b.id]) b.checked = true;
+    b.addEventListener('change', function(){
+      saved[b.id] = b.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+    });
+  });
+})();
+</script>
+</body>
+</html>
