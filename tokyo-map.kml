@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"><Document>
+<name>東京賞楓×冬季點燈 5日景點</name>
+<Folder><name>Day 1 · 抵達與新宿不夜城</name>
+<Placemark>
+<name>歌舞伎町（東急歌舞伎町タワー・黃金街）</name>
+<description>分類：夜生活
+時間：各店不一（多為傍晚到深夜）
+交通：西武新宿站徒步 1 分 / JR 新宿站東口徒步 5 分
+最佳：晚上；輕度體驗、點到為止
+東急歌舞伎町タワー B1 美食橫丁 + 電玩 + 頂樓酒吧；黃金街 200+ 迷你酒吧。安全：拒絕拉客、進店前確認價錢、走主要大街</description>
+<Point><coordinates>139.7024,35.695,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>思い出橫丁</name>
+<description>分類：美食
+時間：多為傍晚到深夜
+交通：JR 新宿站西口步行約 2 分
+最佳：晚餐；一個人吃也自在
+復古小巷，串燒、拉麵、關東煮；順路可看哥吉拉頭</description>
+<Point><coordinates>139.6996,35.6934,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>東京都廳展望台</name>
+<description>分類：展望台
+時間：約至 22:00（依樓層/公休）
+費用：免費
+交通：大江戶線「都廳前」站直結 / JR 新宿站步行約 10 分
+最佳：入夜後看第一晚的東京夜景
+202m 免費展望台</description>
+<Point><coordinates>139.6921,35.6896,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>新宿御苑</name>
+<description>分類：賞楓/銀杏
+時間：週二–週日 09:00–（賞楓季約至 16:30，末入園 16:00）；週一休
+費用：500 日圓
+交通：丸之內線「新宿御苑前」站步行約 5 分；上野搭山手線到新宿約 25 分
+抵達日下午就近安排；日/英/法式庭園。 週五正常開
+官網：https://www.env.go.jp/garden/shinjukugyoen/index.html</description>
+<Point><coordinates>139.7100517,35.6851763,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>大井競馬場 東京メガイルミ</name>
+<description>分類：冬季點燈
+時間：16:30–21:00（末入場 20:00）；只在非賽馬日開
+費用：入場需購票（依年度）
+交通：東京モノレール「大井競馬場前」站；上野→浜松町轉單軌約 30 分
+最佳：傍晚點燈後；可配夜間賽馬 TWINKLE
+冬季限定大型點燈：100m 光之隧道江戸桜トンネル、音樂連動燈光秀、和風原風景。選配，可取代 Day 1 新宿/歌舞伎町那晚；大井在東南、跟抵達日同側最順。⚠️ 只在非賽馬日開，行前對官方日曆
+官網：https://www.tokyocitykeiba.com/</description>
+<Point><coordinates>139.7466,35.5925,0</coordinates></Point>
+</Placemark>
+</Folder>
+<Folder><name>Day 2 · 銀杏與澀谷夜</name>
+<Placemark>
+<name>明治神宮</name>
+<description>分類：神社
+時間：日出至日落（依季節）
+費用：免費
+交通：JR「原宿」/ 千代田線「明治神宮前」站步行約 1–3 分
+最佳：開門後立刻來，人潮最少
+都心森林神社，靜謐參道
+官網：https://www.meijijingu.or.jp/</description>
+<Point><coordinates>139.6993259,35.6763976,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>明治神宮外苑 銀杏並木</name>
+<description>分類：賞楓/銀杏
+時間：終日開放
+費用：免費
+交通：銀座線「外苑前」/「青山一丁目」站步行約 5 分
+最佳：11 月下旬黃葉見頃 · 早上光線好人少
+300 公尺金黃銀杏隧道，全程重頭戲
+官網：http://www.meijijingugaien.jp/</description>
+<Point><coordinates>139.7205745,35.6727172,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>神宮外苑 東京聖誕市集</name>
+<description>分類：冬季點燈
+時間：約 11:00–21:30（依年度）
+費用：入場需購票（依年度）
+交通：JR 中央總武線「信濃町」站步行約 5 分
+最佳：黃昏點燈後
+德國風、聖誕金字塔、熱紅酒，緊鄰銀杏並木</description>
+<Point><coordinates>139.7175,35.671,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>SHIBUYA SKY 澀谷天空</name>
+<description>分類：展望台
+時間：10:00–22:30（末場提前）
+費用：需線上訂票
+交通：澀谷站直結（Scramble Square 頂樓）
+最佳：日落時段
+360 度露天展望台；看完早點回上野，隔天要早起搶江ノ電
+官網：https://www.shibuya-scramble-square.com/sky/</description>
+<Point><coordinates>139.7019848,35.6586719,0</coordinates></Point>
+</Placemark>
+</Folder>
+<Folder><name>Day 3 · 鎌倉 + 江之島（海岸一日遊）</name>
+<Placemark>
+<name>鎌倉大佛 高德院</name>
+<description>分類：文化
+時間：08:00–16:45
+費用：拜觀 300 日圓（入大佛內另 50 日圓）
+交通：江ノ電「長谷」站步行約 7 分；上野→鎌倉 JR 約 1 小時（上野東京線→橫須賀線）
+最佳：一早出發（週日人多、江ノ電擠）
+露天青銅大佛；旁邊長谷寺觀景台可同時看楓紅與海
+官網：https://www.kotoku-in.jp/</description>
+<Point><coordinates>139.5357442,35.3168145,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>七里ヶ浜</name>
+<description>分類：海岸
+時間：終日
+交通：江ノ電「七里ヶ浜」站；隔壁「鎌倉高校前」平交道是灌籃高手名場面
+最佳：晴天可看富士山；午餐吻仔魚丼（しらす丼）
+江ノ電沿海最美一段</description>
+<Point><coordinates>139.513901,35.3043891,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>江之島 江島神社</name>
+<description>分類：離島
+時間：神社終日；海燭展望台與各設施有營業時間
+交通：江ノ電「江ノ島」站 / 小田急「片瀬江ノ島」站；回上野可從藤沢搭 JR，或小田急到新宿轉山手線
+最佳：下午到傍晚，海燭展望台看日落+富士山
+神社、岩屋海蝕洞、日落；冬季『湘南寶石』點燈通常 11 月下旬開跑（當年日期以官網為準）
+官網：http://enoshimajinja.or.jp/hetsumiya/</description>
+<Point><coordinates>139.4795955,35.3003664,0</coordinates></Point>
+</Placemark>
+</Folder>
+<Folder><name>Day 4 · 硬體採購 × 相撲秀</name>
+<Placemark>
+<name>CE LA VI TOKYO</name>
+<description>分類：夜生活
+時間：23:00–4:30
+費用：入場約 ¥2,000–3,500（常含一杯）；20 歲以上、需護照 ID
+交通：澀谷站旁 東急プラザ渋谷 17–18F
+最佳：最後一晚想放鬆再去；喝一杯就走
+高級路線、室內+露天、國際客多，不放電音（house/pops/hiphop/R&amp;B）。⚠️ 隔天午班機、8:30 要出門，別玩太晚</description>
+<Point><coordinates>139.6986,35.6581,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>秋葉原 電器街</name>
+<description>分類：購物/3C
+時間：各店不一（多為 10:00–20:00）
+交通：JR / 日比谷線 / 筑波快線「秋葉原」站；上野搭一站就到
+3C、gadget、二手電子、智慧家電；Yodobashi、Bic Camera、駿河屋。採購走退稅新制（先付後退）
+官網：http://akiba.or.jp/</description>
+<Point><coordinates>139.7713799,35.6997178,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>THE SUMO LIVE RESTAURANT 日楽座 GINZA</name>
+<description>分類：表演
+時間：多場次（傍晚場約 18:00 前後，以官網為準）；約 2 小時
+費用：標準席約 17,000 日圓起（＋服務費 700 日圓／張，含餐+秀）
+交通：有樂町線「銀座一丁目」站 10 號出口徒步 1 分；JR「有樂町」站徒步 7 分
+最佳：Day 4 傍晚，看完丸之內點燈後接這場當晚餐
+元力士現場表演＋3 場真對戰＋會席料理＋日本酒；開場講解規則、結束後可合照。歌舞伎座換檔沒戲、大相撲 11 月在福岡，故以此替代
+官網：https://hirakuza.net/tokyo/</description>
+<Point><coordinates>139.7684499,35.6734916,0</coordinates></Point>
+</Placemark>
+</Folder>
+<Folder><name>機動 / 選配</name>
+<Placemark>
+<name>六本木之丘 けやき坂</name>
+<description>分類：冬季點燈
+時間：點燈約 17:00–23:00
+費用：免費
+交通：日比谷線「六本木」站直結
+最佳：17:00 亮燈後
+約 400m、80 萬顆藍白 LED + 東京鐵塔框景
+官網：http://www.roppongihills.com/</description>
+<Point><coordinates>139.7281099,35.6591343,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>六義園</name>
+<description>分類：賞楓/銀杏
+時間：09:00–17:00（夜間點燈期延長至約 21:00，需另購票）
+費用：300 日圓
+交通：JR 山手線 / 南北線「駒込」站步行約 7 分
+最佳：11 月底楓紅見頃；夜間點燈倒影
+江戶迴遊式名園；住上野的話山手線幾站就到
+官網：https://www.tokyo-park.or.jp/park/rikugien/</description>
+<Point><coordinates>139.7457335,35.7331005,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>東京車站 / 丸之內仲通</name>
+<description>分類：冬季點燈
+時間：點燈約 16:00–24:00
+費用：免費
+交通：JR / 丸之內線「東京」站 丸之內出口
+最佳：傍晚點燈後
+香檳金 LED；紅磚車站夜景。Day 4 去銀座路上幾乎不繞路</description>
+<Point><coordinates>139.7670658,35.6812996,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>築地場外市場</name>
+<description>分類：美食
+時間：多數店家早上營業（約 05:00–14:00）
+交通：日比谷線「築地」站 / 大江戶線「築地市場」站步行約 1–3 分
+最佳：8 點前人少
+早餐：玉子燒、海鮮丼、現烤串；帶現金。⚠️ 回程午班機，Day 5 排不進，想去要某天早起提早衝
+官網：https://www.tsukiji.or.jp/</description>
+<Point><coordinates>139.7702515,35.6647703,0</coordinates></Point>
+</Placemark>
+</Folder>
+</Document></kml>
